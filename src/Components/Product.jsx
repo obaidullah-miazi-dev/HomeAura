@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Product = ({ item }) => {
-    console.log(item);
+    // console.log(item);
     return (
         <>
             <section className="py-8  bg-white">

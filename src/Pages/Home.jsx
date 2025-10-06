@@ -3,11 +3,14 @@ import Banner from '../Components/Banner';
 import { Link, useLoaderData } from 'react-router';
 import Product from '../Components/Product';
 import Container from '../Components/Container';
+import useProducts from '../Hook/useProducts';
 
 const Home = () => {
     const products = useLoaderData()
+    const data = useProducts()
+    console.log(data);
     const featuredProduct = products.slice(0, 8)
-    console.log(products);
+    // console.log(products);
     return (
         <>
             <Banner></Banner>
