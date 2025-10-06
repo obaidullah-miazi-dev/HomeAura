@@ -21,14 +21,13 @@ const Banner = () => {
                         </button>
                     </div>
 
-                    <div className="flex-1 flex justify-center relative">
                         <div className="absolute bg-amber-100 w-60 h-60 rounded-full top-6 -z-10"></div>
                         <img
                             src={bannerImg}
                             alt="Chair"
                             className="w-72 md:w-96"
                         />
-                    </div>
+                    
                 </div>
             </Container>
         </section>

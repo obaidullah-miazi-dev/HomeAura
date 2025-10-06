@@ -23,7 +23,9 @@ const Navbar = () => {
                         <NavLink to='/'>
                         <li className="hover:text-amber-600 transition cursor-pointer">Home</li>
                         </NavLink>
-                        <li className="hover:text-amber-600 transition cursor-pointer">Shop</li>
+                        <NavLink to='/products'>
+                            <li className="hover:text-amber-600 transition cursor-pointer">Products</li>
+                        </NavLink>
                         <li className="hover:text-amber-600 transition cursor-pointer">About</li>
                         <li className="hover:text-amber-600 transition cursor-pointer">Blog</li>
                         <li className="hover:text-amber-600 transition cursor-pointer">Contact</li>
