@@ -5,6 +5,7 @@ import Products from "../Components/Products";
 import ProductsDetails from "../Components/ProductsDetails";
 import Wishlist from "../Pages/Wishlist";
 import ErrorPage from '../Pages/ErrorPage';
+import About from '../Pages/About';
 
 
 const router = createHashRouter([
@@ -28,6 +29,10 @@ const router = createHashRouter([
             {
                 path: '/wishlist',
                 Component: Wishlist
+            },
+            {
+                path: '/about',
+                Component: About
             },
             {
                 path: '*',

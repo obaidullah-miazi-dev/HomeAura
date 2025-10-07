@@ -31,7 +31,9 @@ const Navbar = () => {
                         <NavLink to='/wishlist'>
                             <li className="hover:text-amber-600 transition cursor-pointer">WishList</li>
                         </NavLink>
-                        <li className="hover:text-amber-600 transition cursor-pointer">About</li>
+                        <NavLink to='/about'> 
+                            <li className="hover:text-amber-600 transition cursor-pointer">About</li>
+                        </NavLink>
                         <li className="hover:text-amber-600 transition cursor-pointer">Contact</li>
                     </ul>
 
