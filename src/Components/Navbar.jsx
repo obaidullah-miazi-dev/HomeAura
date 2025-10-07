@@ -14,16 +14,16 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         <NavLink to='/'>
                             <img
-                            src={Logo}
-                            alt="HomeAura"
-                            className="w-20"
-                        />
+                                src={Logo}
+                                alt="HomeAura"
+                                className="w-20"
+                            />
                         </NavLink>
                     </div>
 
                     <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
                         <NavLink to='/'>
-                        <li className="hover:text-amber-600 transition cursor-pointer">Home</li>
+                            <li className="hover:text-amber-600 transition cursor-pointer">Home</li>
                         </NavLink>
                         <NavLink to='/products'>
                             <li className="hover:text-amber-600 transition cursor-pointer">Products</li>
@@ -31,10 +31,10 @@ const Navbar = () => {
                         <NavLink to='/wishlist'>
                             <li className="hover:text-amber-600 transition cursor-pointer">WishList</li>
                         </NavLink>
-                        <NavLink to='/about'> 
+                        <NavLink to='/about'>
                             <li className="hover:text-amber-600 transition cursor-pointer">About</li>
                         </NavLink>
-                        <li className="hover:text-amber-600 transition cursor-pointer">Contact</li>
+                        
                     </ul>
 
                     <div className="hidden md:flex items-center gap-4">
@@ -59,11 +59,19 @@ const Navbar = () => {
                 {open && (
                     <div className="md:hidden bg-white border-t border-gray-100 shadow-sm">
                         <ul className="flex flex-col items-center gap-4 py-6 text-gray-700 font-medium">
-                            <li className="hover:text-amber-600 transition cursor-pointer">Home</li>
-                            <li className="hover:text-amber-600 transition cursor-pointer">Shop</li>
-                            <li className="hover:text-amber-600 transition cursor-pointer">About</li>
-                            <li className="hover:text-amber-600 transition cursor-pointer">Blog</li>
-                            <li className="hover:text-amber-600 transition cursor-pointer">Contact</li>
+                            <NavLink to='/'>
+                                <li className="hover:text-amber-600 transition cursor-pointer">Home</li>
+                            </NavLink>
+                            <NavLink to='/products'>
+                                <li className="hover:text-amber-600 transition cursor-pointer">Products</li>
+                            </NavLink>
+                            <NavLink to='/wishlist'>
+                                <li className="hover:text-amber-600 transition cursor-pointer">WishList</li>
+                            </NavLink>
+                            <NavLink to='/about'>
+                                <li className="hover:text-amber-600 transition cursor-pointer">About</li>
+                            </NavLink>
+                            
                             <div className="flex gap-3 mt-3">
                                 <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition">
                                     Login
