@@ -18,7 +18,19 @@ const ProductsDetails = () => {
         );
     }
 
-    
+    const handleAddToWishList = () =>{
+        const existingProducts = JSON.parse(localStorage.getItem('wishlist'))
+        console.log(existingProducts);
+        let updatedProducts = []
+        if(existingProducts){
+            const isDuplicate = existingProducts.some(p => p.id === product.id)
+            if(isDuplicate) return alert('already exist this in wishlist')
+            updatedProducts = [...existingProducts, product]
+        }else{
+            updatedProducts.push(product)
+        }
+        localStorage.setItem('wishlist',JSON.stringify(updatedProducts))
+    }
 
     return (
         <Container>
