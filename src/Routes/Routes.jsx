@@ -4,12 +4,14 @@ import Home from "../Pages/Home";
 import Products from "../Components/Products";
 import ProductsDetails from "../Components/ProductsDetails";
 import Wishlist from "../Pages/Wishlist";
+import ErrorPage from '../Pages/ErrorPage';
 
 
 const router = createHashRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -29,7 +31,7 @@ const router = createHashRouter([
             },
             {
                 path: '*',
-                element: <div className="text-center py-20 text-gray-500">404 - Page Not Found</div>
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

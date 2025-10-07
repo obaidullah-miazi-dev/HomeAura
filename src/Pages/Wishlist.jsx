@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../Components/Container';
 import { Link } from 'react-router-dom';
+import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import Product from '../Components/Product';
 
 const Wishlist = () => {
     const [wishlist, setWishlist] = useState([])
@@ -9,6 +11,10 @@ const Wishlist = () => {
         const savedProducts = JSON.parse(localStorage.getItem('wishlist') || [])
         if (savedProducts) setWishlist(savedProducts)
     }, [])
+
+    if(!wishlist.length){
+        return <Container><p className='text-red-500 text-2xl text-center mt-20 font-semibold'> ⚠️ No Wishlist Added</p></Container>
+    }
 
 
     const handleSort = (
@@ -29,8 +35,21 @@ const Wishlist = () => {
         const existingProducts = JSON.parse(localStorage.getItem('wishlist'))
         let updatedProducts = existingProducts.filter(p => p.id !== id)
         setWishlist(updatedProducts)
-        localStorage.setItem('wishlist',JSON.stringify(updatedProducts))
+        localStorage.setItem('wishlist', JSON.stringify(updatedProducts))
     }
+
+
+
+    const totalsByCategory = {}
+    wishlist.forEach(p=>{
+        const category = p.category
+        totalsByCategory[category] = (totalsByCategory[category] || 0) + p.price
+    })
+
+    const chartData = Object.keys(totalsByCategory).map(category => ({
+        category: category,
+        total: totalsByCategory[category]
+    }))
     return (
         <Container>
             <div>
@@ -46,7 +65,7 @@ const Wishlist = () => {
                 </div>
                 {
                     handleSort.map(p => (
-                        <div className="flex  my-8 flex-col sm:flex-row bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden p-4 gap-4 border border-gray-100">
+                        <div key={p.id} className="flex  my-8 flex-col sm:flex-row bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden p-4 gap-4 border border-gray-100">
 
                             <div className="flex  md:justify-center items-center">
                                 <img
@@ -103,6 +122,29 @@ const Wishlist = () => {
                         </div>
                     ))
                 }
+
+
+                <div className='space-y-5'>
+                    <h2 className='font-bold text-3xl'>Whislist Summary</h2>
+                    <div className='h-96 border rounded-xl bg-base-100 mb-3 p-5'>
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart
+                                
+                                data={chartData}
+                                
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="category" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="total" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+
+                            </BarChart>
+                        </ResponsiveContainer>
+
+                    </div>
+                </div>
 
             </div>
         </Container>
