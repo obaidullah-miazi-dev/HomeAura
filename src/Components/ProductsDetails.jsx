@@ -6,7 +6,10 @@ import Container from './Container';
 
 const ProductsDetails = () => {
     const { id } = useParams();
-    const { products } = useProducts();
+    const { products,loading,error } = useProducts();
+
+    if (loading) return <Container><div>Loading product details...</div></Container>;
+    if (error) return <Container><div>Error: {error.message}</div></Container>;
 
     const product = products.find(p => String(p.id) === id);
 
@@ -18,25 +21,25 @@ const ProductsDetails = () => {
         );
     }
 
-    const handleAddToWishList = () =>{
+    const handleAddToWishList = () => {
         const existingProducts = JSON.parse(localStorage.getItem('wishlist'))
         console.log(existingProducts);
         let updatedProducts = []
-        if(existingProducts){
+        if (existingProducts) {
             const isDuplicate = existingProducts.some(p => p.id === product.id)
-            if(isDuplicate) return alert('already exist this in wishlist')
+            if (isDuplicate) return alert('already exist this in wishlist')
             updatedProducts = [...existingProducts, product]
-        }else{
+        } else {
             updatedProducts.push(product)
         }
-        localStorage.setItem('wishlist',JSON.stringify(updatedProducts))
+        localStorage.setItem('wishlist', JSON.stringify(updatedProducts))
     }
 
     return (
         <Container>
             <div className='md:flex gap-12 justify-between items-center my-24 '>
                 <div className='bg-gray-50 p-12 w-full flex-1 flex justify-center items-center rounded-2xl'>
-                    <img className='rounded-2xl w-full' src={product.image} alt="" />
+                    <img className='rounded-2xl w-full' src={product.image} alt={product.name} />
                 </div>
                 <div className='flex-2  space-y-12 text-center md:text-left mt-12 md:mt-0'>
                     <h1 className='md:text-8xl text-5xl font-bold'>{product.name}</h1>

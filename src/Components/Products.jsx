@@ -5,10 +5,14 @@ import Container from './Container';
 import bannerImg from '../assets/products-banner.jpeg'
 
 const Products = () => {
-    const { products } = useProducts()
+    const { products,loading,error } = useProducts()
+    console.log(products);
     const [search, setSearch] = useState('')
     const term = search.trim().toLocaleLowerCase()
-    const searchedProducts = term?products.filter(product => product.name.toLocaleLowerCase().includes(term)):products
+    const searchedProducts = term ? products.filter(product => product.name.toLocaleLowerCase().includes(term)) : products
+
+    if (loading) return <Container><div>Loading products...</div></Container>;
+    if (error) return <Container><div>Error: {error.message}</div></Container>;
     // console.log(searchedProducts);
 
     return (

@@ -8,24 +8,28 @@ import Wishlist from "../Pages/Wishlist";
 
 const router = createHashRouter([
     {
-        path:'/',
-        element:<Root></Root>,
-        children:[
+        path: '/',
+        element: <Root></Root>,
+        children: [
             {
-                path:'/',
+                path: '/',
                 Component: Home
             },
             {
-                path:'/products',
+                path: '/products',
                 Component: Products
             },
             {
-                path:'/product/:id',
+                path: '/product/:id',
                 Component: ProductsDetails
             },
             {
-                path:'/wishlist',
+                path: '/wishlist',
                 Component: Wishlist
+            },
+            {
+                path: '*',
+                element: <div className="text-center py-20 text-gray-500">404 - Page Not Found</div>
             }
         ]
     }
