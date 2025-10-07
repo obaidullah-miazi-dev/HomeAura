@@ -4,16 +4,41 @@ import { Link } from 'react-router';
 
 const Wishlist = () => {
     const [wishlist, setWishlist] = useState([])
+    const [sortOrder, setSortOrder] = useState('none')
     useEffect(() => {
         const savedProducts = JSON.parse(localStorage.getItem('wishlist'))
         if (savedProducts) setWishlist(savedProducts)
     }, [])
+
+
+    const handleSort = (
+        () => {
+            if (sortOrder === 'price-asc') {
+                return [...wishlist].sort((a, b) => a.price - b.price)
+            }
+            else if (sortOrder === 'price-desc') {
+                return [...wishlist].sort((a, b) => b.price - a.price)
+            }
+            else {
+                return wishlist
+            }
+        }
+    )()
     return (
         <Container>
             <div>
-                
+                <div className='flex justify-between items-center mt-16'>
+                    <h2 className='text-2xl font-bold'>Wishlisted Products</h2>
+                    <label className='form-control w-full max-w-xs'>
+                        <select className='select select-bordered font-semibold' value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <option value="none">Sort By Price</option>
+                            <option value="price-asc">Low to High</option>
+                            <option value="price-desc">High to Low</option>
+                        </select>
+                    </label>
+                </div>
                 {
-                    wishlist.map(p => (
+                    handleSort.map(p => (
                         <div className="flex  my-8 flex-col sm:flex-row bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden p-4 gap-4 border border-gray-100">
 
                             <div className="flex  md:justify-center items-center">
@@ -53,16 +78,20 @@ const Wishlist = () => {
                                         <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                                             Category: {p.category}
                                         </span>
-                                        
+
                                     </div>
-                                        
+
 
                                 </div>
-                                <Link to={`/product/${p.id}`} >
-                                        <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-full mt-2 sm:mt-0 w-full md:w-28">
+                                <div className='flex items-center gap-3'>
+                                    <Link to={`/product/${p.id}`} >
+                                        <button className="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-full  sm:mt-0 w-full md:w-28">
                                             View Details
                                         </button>
                                     </Link>
+
+                                    <button className='bg-red-100 text-red-600 py-1.5 px-4 rounded-full font-semibold hover:bg-red-200'>Remove</button>
+                                </div>
                             </div>
                         </div>
                     ))
