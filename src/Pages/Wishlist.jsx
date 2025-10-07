@@ -13,7 +13,7 @@ const Wishlist = () => {
     }, [])
 
     if(!wishlist.length){
-        return <Container><p className='text-red-500 text-2xl text-center mt-20 font-semibold'> ⚠️ No Wishlist Added</p></Container>
+        return <Container><p className='text-red-500 text-2xl text-center my-96 font-semibold'> ⚠️ No Wishlist Added</p></Container>
     }
 
 
