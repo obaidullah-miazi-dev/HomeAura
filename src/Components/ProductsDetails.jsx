@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import useProducts from '../Hook/useProducts';
 import { Heart } from 'lucide-react';
 import Container from './Container';

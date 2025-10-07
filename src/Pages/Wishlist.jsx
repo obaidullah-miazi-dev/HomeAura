@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../Components/Container';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
     const [wishlist, setWishlist] = useState([])

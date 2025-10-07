@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from '../assets/HomeAura-logo.png'
 import { Menu, X } from "lucide-react"; // icons
 import Container from "./Container";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
