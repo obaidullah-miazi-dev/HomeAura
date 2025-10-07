@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom';
 import useProducts from '../Hook/useProducts';
 import { Heart } from 'lucide-react';
 import Container from './Container';
+import Loader from './Loader';
+import ErrorPage from '../Pages/ErrorPage';
 
 const ProductsDetails = () => {
     const { id } = useParams();
-    const { products,loading,error } = useProducts();
+    const { products, loading, error } = useProducts();
 
-    if (loading) return <Container><div>Loading product details...</div></Container>;
-    if (error) return <Container><div>Error: {error.message}</div></Container>;
+    if (loading) return <Container><Loader></Loader></Container>;
+    if (error) return <Container><ErrorPage></ErrorPage></Container>;
 
     const product = products.find(p => String(p.id) === id);
 

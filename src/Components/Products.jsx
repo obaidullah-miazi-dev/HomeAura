@@ -3,6 +3,8 @@ import useProducts from '../Hook/useProducts';
 import Product from './Product';
 import Container from './Container';
 import bannerImg from '../assets/products-banner.jpeg'
+import Loader from './Loader';
+import ErrorPage from '../Pages/ErrorPage';
 
 const Products = () => {
     const { products,loading,error } = useProducts()
@@ -11,8 +13,8 @@ const Products = () => {
     const term = search.trim().toLocaleLowerCase()
     const searchedProducts = term ? products.filter(product => product.name.toLocaleLowerCase().includes(term)) : products
 
-    if (loading) return <Container><div>Loading products...</div></Container>;
-    if (error) return <Container><div>Error: {error.message}</div></Container>;
+    if (loading) return <Container><Loader></Loader></Container>;
+    if (error) return <Container><ErrorPage></ErrorPage></Container>;
     // console.log(searchedProducts);
 
     return (
