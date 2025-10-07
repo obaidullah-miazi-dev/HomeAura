@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Product = ({ item }) => {
-    // console.log(item);
+    const {id} = item;
     return (
         <>
             <section className="py-8  bg-white">
                 <div>
                     
                         <div className="shadow-md rounded-xl overflow-hidden  hover:shadow-xl transition bg-[#fdfdfd]">
-                            <img src={item.image} alt={item.name} className="w-full h-64 " />
+                            <img src={item.image} alt={item.name} className="w-full h-64 hover:scale-105  duration-700" />
                             <div className="p-4 space-y-3">
                                 <div className='flex justify-between items-center'>
                                     <h3 className="text-xl font-medium text-gray-800">{item.name}</h3>
@@ -21,9 +22,9 @@ const Product = ({ item }) => {
                                     <p className="text-amber-600 font-semibold text-lg">$ {item.price}</p>
                                     <p className={`${item.stock?'bg-green-100 text-green-500':'bg-red-100 text-red-500'} font-semibold px-2 py-1 rounded-full`}>{item.stock?'Available':'Out of Stock'}</p>
                                 </div>
-                                <button className="mt-3 px-5 py-2 bg-gray-800 text-white rounded-xl hover:bg-gray-900 transition w-full">
-                                    Add to Cart
-                                </button>
+                                <Link to={`/product/${id}`} className="mt-6 px-5 py-2.5  bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition w-full block text-center font-semibold cursor-pointer">
+                                    View Details
+                                </Link>
                             </div>
                         </div>
                     

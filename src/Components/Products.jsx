@@ -9,7 +9,7 @@ const Products = () => {
     const [search, setSearch] = useState('')
     const term = search.trim().toLocaleLowerCase()
     const searchedProducts = term?products.filter(product => product.name.toLocaleLowerCase().includes(term)):products
-    console.log(searchedProducts);
+    // console.log(searchedProducts);
 
     return (
         <Container>

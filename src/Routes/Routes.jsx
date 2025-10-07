@@ -3,6 +3,7 @@ import App from "../App";
 import Root from "../Layout/Root";
 import Home from "../Pages/Home";
 import Products from "../Components/Products";
+import ProductsDetails from "../Components/ProductsDetails";
 
 
 const router = createBrowserRouter([
@@ -12,12 +13,15 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element: <Home></Home>,
-                loader: () => fetch('furnitureData.json')
+                Component: Home
             },
             {
                 path:'/products',
                 Component: Products
+            },
+            {
+                path:'/product/:id',
+                Component: ProductsDetails
             }
         ]
     }
