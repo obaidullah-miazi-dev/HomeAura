@@ -6,7 +6,7 @@ const Wishlist = () => {
     const [wishlist, setWishlist] = useState([])
     const [sortOrder, setSortOrder] = useState('none')
     useEffect(() => {
-        const savedProducts = JSON.parse(localStorage.getItem('wishlist'))
+        const savedProducts = JSON.parse(localStorage.getItem('wishlist') || [])
         if (savedProducts) setWishlist(savedProducts)
     }, [])
 
@@ -24,6 +24,13 @@ const Wishlist = () => {
             }
         }
     )()
+
+    const handleRemove = (id) => {
+        const existingProducts = JSON.parse(localStorage.getItem('wishlist'))
+        let updatedProducts = existingProducts.filter(p => p.id !== id)
+        setWishlist(updatedProducts)
+        localStorage.setItem('wishlist',JSON.stringify(updatedProducts))
+    }
     return (
         <Container>
             <div>
@@ -90,7 +97,7 @@ const Wishlist = () => {
                                         </button>
                                     </Link>
 
-                                    <button className='bg-red-100 text-red-600 py-1.5 px-4 rounded-full font-semibold hover:bg-red-200'>Remove</button>
+                                    <button onClick={() => handleRemove(p.id)} className='bg-red-100 text-red-600 py-1.5 px-4 rounded-full font-semibold hover:bg-red-200'>Remove</button>
                                 </div>
                             </div>
                         </div>

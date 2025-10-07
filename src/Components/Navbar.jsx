@@ -12,11 +12,13 @@ const Navbar = () => {
             <Container>
                 <div className="mx-auto flex justify-between items-center px-6 md:px-10 py-4">
                     <div className="flex items-center gap-2">
-                        <img
+                        <NavLink to='/'>
+                            <img
                             src={Logo}
                             alt="HomeAura"
                             className="w-20"
                         />
+                        </NavLink>
                     </div>
 
                     <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
