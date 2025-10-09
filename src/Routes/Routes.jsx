@@ -31,10 +31,6 @@ const router = createHashRouter([
                 Component: Wishlist
             },
             {
-                path: '/about',
-                Component: About
-            },
-            {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
             }

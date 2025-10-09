@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Container from '../Components/Container';
 import { Link } from 'react-router-dom';
 import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import Product from '../Components/Product';
 
 const Wishlist = () => {
     const [wishlist, setWishlist] = useState([])

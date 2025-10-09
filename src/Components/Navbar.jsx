@@ -31,9 +31,7 @@ const Navbar = () => {
                         <NavLink to='/wishlist'>
                             <li className="hover:text-amber-600 transition cursor-pointer">WishList</li>
                         </NavLink>
-                        <NavLink to='/about'>
-                            <li className="hover:text-amber-600 transition cursor-pointer">About</li>
-                        </NavLink>
+                        
                         
                     </ul>
 
@@ -68,9 +66,7 @@ const Navbar = () => {
                             <NavLink to='/wishlist'>
                                 <li className="hover:text-amber-600 transition cursor-pointer">WishList</li>
                             </NavLink>
-                            <NavLink to='/about'>
-                                <li className="hover:text-amber-600 transition cursor-pointer">About</li>
-                            </NavLink>
+                            
                             
                             <div className="flex gap-3 mt-3">
                                 <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition">
