@@ -39,6 +39,7 @@ const ProductsDetails = () => {
 
     return (
         <Container>
+            <title>{product.name}</title>
             <div className='md:flex gap-12 justify-between items-center my-24 '>
                 <div className='bg-gray-50 p-12 w-full flex-1 flex justify-center items-center rounded-2xl'>
                     <img className='rounded-2xl w-full' src={product.image} alt={product.name} />

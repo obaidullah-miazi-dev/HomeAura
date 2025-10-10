@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Components/Banner';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Product from '../Components/Product';
 import Container from '../Components/Container';
 import useProducts from '../Hook/useProducts';
@@ -18,6 +18,7 @@ const Home = () => {
 
     return (
         <>
+            <title>HomeAura - Home</title>
             <Banner></Banner>
             <Container>
 

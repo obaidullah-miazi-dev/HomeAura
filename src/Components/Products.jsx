@@ -19,6 +19,7 @@ const Products = () => {
 
     return (
         <Container>
+            <title>HomeAura - Products</title>
             <div className="relative w-full h-[60vh] flex items-center justify-center bg-cover bg-center  mt-12 rounded-2xl"
                 style={{ backgroundImage: `url(${bannerImg})`, overflow: 'hidden', }}>
 

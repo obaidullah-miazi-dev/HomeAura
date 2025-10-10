@@ -34,6 +34,7 @@ const About = () => {
   return (
     <Container>
       <div>
+        
         {/* Hero Section */}
         <div
           className="relative w-full h-[60vh] flex items-center justify-center bg-contain bg-center mt-12 rounded-2xl"

@@ -52,6 +52,7 @@ const Wishlist = () => {
     return (
         <Container>
             <div>
+            <title>HomeAura - WishList</title>
                 <div className='flex justify-between items-center mt-16'>
                     <h2 className='text-2xl font-bold'>Wishlisted Products</h2>
                     <label className='form-control w-full max-w-xs'>
